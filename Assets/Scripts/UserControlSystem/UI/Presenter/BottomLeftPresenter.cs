@@ -10,7 +10,6 @@ namespace UserControlSystem
         [SerializeField] private Image _selectedImage;
         [SerializeField] private Slider _healthSlider;
         [SerializeField] private TextMeshProUGUI _text;
-        [SerializeField] private TextMeshProUGUI _name;
         [SerializeField] private Image _sliderBackground;
         [SerializeField] private Image _sliderFillImage;
 
@@ -18,20 +17,18 @@ namespace UserControlSystem
 
         private void Start()
         {
-            _selectedValue.OnSelected += OnSelected;
-            OnSelected(_selectedValue.CurrentValue);
+            _selectedValue.OnNewValue += ONSelected;
+            ONSelected(_selectedValue.CurrentValue);
         }
         
-        private void OnSelected(ISelectable selected)
+        private void ONSelected(ISelectable selected)
         {
             _selectedImage.enabled = selected != null;
             _healthSlider.gameObject.SetActive(selected != null);
             _text.enabled = selected != null;
-            _name.enabled = selected != null;
 
             if (selected != null)
             {
-                _name.text = $"{selected.GetType().Name}";
                 _selectedImage.sprite = selected.Icon;
                 _text.text = $"{selected.Health}/{selected.MaxHealth}";
                 _healthSlider.minValue = 0;

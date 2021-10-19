@@ -2,7 +2,7 @@
 using Core;
 using UnityEngine;
 using UnityEngine.AI;
-using UserControlSystem;
+using Utils;
 
 namespace Abstractions.Commands.CommandExecutors
 {
@@ -20,7 +20,7 @@ namespace Abstractions.Commands.CommandExecutors
             try
             {
                 await _stop
-                    .WithCansellation
+                    .WithCancellation
                     (
                     _stopCommandExecutor
                     .CancellationTokenSource

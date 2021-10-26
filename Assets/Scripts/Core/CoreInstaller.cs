@@ -2,7 +2,7 @@
 
 namespace Core
 {
-    public sealed class CoreInstaller : MonoInstaller
+    public class CoreInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {

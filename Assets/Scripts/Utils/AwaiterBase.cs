@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Utils
 {
@@ -11,14 +11,20 @@ namespace Utils
         public bool IsCompleted => _isCompleted;
 
         public TAwaited GetResult() => _result;
-
+        
         public void OnCompleted(Action continuation)
         {
-            if (_isCompleted) continuation?.Invoke();
-            else _continuation = continuation;
+            if (_isCompleted)
+            {
+                continuation?.Invoke();
+            }
+            else
+            {
+                _continuation = continuation;
+            }
         }
 
-        protected void onWaitFinish(TAwaited result)
+        protected void ONWaitFinish(TAwaited result)
         {
             _result = result;
             _isCompleted = true;

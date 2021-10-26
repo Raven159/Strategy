@@ -1,7 +1,6 @@
-﻿using Core;
-using Utils;
+﻿using Utils;
 
-namespace Abstractions
+namespace Core
 {
     public class StopAwaiter : AwaiterBase<AsyncExtensions.Void>
     {
@@ -10,13 +9,13 @@ namespace Abstractions
         public StopAwaiter(UnitMovementStop unitMovementStop)
         {
             _unitMovementStop = unitMovementStop;
-            _unitMovementStop.OnStop += onStop;
+            _unitMovementStop.OnStop += ONStop;
         }
 
-        private void onStop()
+        private void ONStop()
         {
-            _unitMovementStop.OnStop -= onStop;
-            onWaitFinish(new AsyncExtensions.Void());
+            _unitMovementStop.OnStop -= ONStop;
+            ONWaitFinish(new AsyncExtensions.Void());
         }
     }
 }

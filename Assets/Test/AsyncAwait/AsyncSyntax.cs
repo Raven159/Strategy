@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AsyncSyntax : MonoBehaviour
 {
-    public void Awake() => RunAsync();
+    public void RunTest() => RunAsync();
 
     private async void RunAsync()
     {

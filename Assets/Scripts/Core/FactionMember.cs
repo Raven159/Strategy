@@ -31,12 +31,13 @@ namespace Core
 
         private void Awake()
         {
-            if (_factionId != null) register();
+            if (_factionId != 0) register();
         }
 
         public void SetFaction(int factionId)
         {
             _factionId = factionId;
+            register();
         }
 
         private void OnDestroy()

@@ -21,9 +21,7 @@ namespace Core.CommandExecutors
             while (true)
             {
                 GetComponent<NavMeshAgent>().destination = point2;
-                _animator
-                    .SetTrigger(Animator
-                    .StringToHash(AnimationTypes.Walk));
+                _animator.SetTrigger(Animator.StringToHash("Walk"));
                 _stopCommandExecutor.CancellationTokenSource = new CancellationTokenSource();
                 try
                 {
@@ -42,7 +40,7 @@ namespace Core.CommandExecutors
                 point2 = temp;
             }
             _stopCommandExecutor.CancellationTokenSource = null;
-            _animator.SetTrigger(Animator.StringToHash(AnimationTypes.Idle));
+            _animator.SetTrigger(Animator.StringToHash("Idle"));
         }
     }
 }
